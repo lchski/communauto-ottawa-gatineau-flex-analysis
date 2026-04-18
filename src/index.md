@@ -3,7 +3,7 @@ toc: false
 ---
 
 <div class="hero">
-  <h1>Communauto FLEX in Ottaw: The first six months</h1>
+  <h1>Communauto FLEX in Ottawa: The first six months</h1>
 </div>
 
 
