@@ -6,6 +6,13 @@ toc: false
   <h1>Communauto FLEX in Ottawa: The first six months</h1>
 </div>
 
+Communauto expanded its FLEX offering to Ottawa/Gatineau on October 16th, 2025.
+
+Unlike Communauto’s conventional round-trip offering, where each car must be picked up and dropped off at a specific station (with off-street parking), FLEX cars are dropped off using on-street parking. This enables one-way trips, which are super useful. The only limitation is that cars may only be parked in certain residential parking zones, and only on streets that allow parking for permit holders. (Communauto has parking guides for both [Ottawa](https://ontario.communauto.com/ottawa/parking-guide/) and [Gatineau](https://gatineau.communauto.com/parking-guide/?lang=en).)
+
+This project visualizes usage of the FLEX service, using data on where FLEX cars are parked within the region. It offers a few reflections on the first six months of Communauto FLEX service in Ottawa/Gatineau.
+
+The data was collected about once an hour, starting at 11 AM on Saturday, October 18th. (The first two and a half days of usage are thus not reflected—my eternal regret!) **Data was last updated at: ${formatTime(observations_last_timestamp)}** [TODO: decide if we want to make this a fixed report, or auto-updating]
 
 
 <style>
