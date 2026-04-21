@@ -6,7 +6,7 @@ toc: false
   <h1>Communauto FLEX in Ottawa: The first six months</h1>
 </div>
 
-Communauto expanded its FLEX offering to Ottawa/Gatineau on October 16th, 2025.
+Communauto expanded its FLEX offering to Ottawa/Gatineau on October 16th, 2025. It was [framed as a pilot project](https://ontario.communauto.com/ottawa/the-cities-of-ottawa-and-gatineau-approve-the-launch-of-communautos-flex-carsharing-service/)—how’s it gone?
 
 Unlike Communauto’s conventional round-trip offering, where each car must be picked up and dropped off at a specific station (with off-street parking), FLEX cars are dropped off using on-street parking. This enables one-way trips, which are super useful. The only limitation is that cars may only be parked in certain residential parking zones, and only on streets that allow parking for permit holders. (Communauto has parking guides for both [Ottawa](https://ontario.communauto.com/ottawa/parking-guide/) and [Gatineau](https://gatineau.communauto.com/parking-guide/?lang=en).)
 
