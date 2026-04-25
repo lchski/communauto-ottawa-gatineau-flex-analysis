@@ -1,30 +1,17 @@
 ---
-title: Car availability 
+title: Car availability [TODO]
 ---
+
+```js
+import {formatDate, formatPercent, sparkbar} from './lib/helpers.js'
+import {flex_observations} from './data/communauto.js'
+```
 
 # Car availability
 
 The [pilot project announcement](https://ontario.communauto.com/ottawa/the-cities-of-ottawa-and-gatineau-approve-the-launch-of-communautos-flex-carsharing-service/) indicated that 30 cars would be in service. Communauto lived up to this promise! There were ${availability_by_car.length} unique cars in service during this period.
 
 ```js
-const formatDate = d3.timeFormat("%B %d, %Y")
-
-const formatPercent = (pct) => Math.round(pct * 100) / 1
-
-function sparkbar(max) {
-    return (x) => htl.html`<div style="
-        background: var(--theme-green);
-        color: black;
-        font: 10px/1.6 var(--sans-serif);
-        width: ${100 * x / max}%;
-        float: right;
-        padding-right: 3px;
-        box-sizing: border-box;
-        overflow: visible;
-        display: flex;
-        justify-content: end;">${x.toLocaleString("en-US")}`
-}
-
 const availability_by_car = aq.from(flex_observations)
         .groupby('CarNo')
         .rollup({
@@ -108,30 +95,6 @@ const least_available_car = d3.sort(availability_by_car, (a, b) => d3.ascending(
 This chart tells us that there was never a week where all 30 cars were observed to be in service at once. This isn’t a huge surprise, given the combination of expected usage and maintenance. 
 
 But we can also see, looking back at the table of cars, that one wasn’t like the others: #${least_available_car.CarNo} was only in service between ${formatDate(least_available_car.first_seen)} and ${formatDate(least_available_car.last_seen)} (${d3.timeDay.count(least_available_car.first_seen, least_available_car.last_seen)} days total). Of this time, it was only actually observed (i.e., available to rent at some point that day) on ${least_available_car.n_days_seen} days (${formatPercent(least_available_car.pct_days_seen_vs_service)}% of the total days in service).
-
-```js
-const flex_observations_raw = FileAttachment('data/communauto/flex-location-observations.tsv').tsv({typed: true})
-```
-
-```js
-const flex_observations = flex_observations_raw
-    .map(d => ({
-        ...d,
-        datestamp: d3.timeDay.floor(new Date(d.timestamp)),
-        timestamp_normalized: d3.timeHour.floor(new Date(d.timestamp))
-    }))
-    .filter(d => {
-        if (d.LastUseDate === "") {
-            return false
-        }
-
-        if (new Date(d.LastUseDate) < new Date("2025-10-16")) {
-            return false
-        }
-
-        return true
-    })
-```
 
 ```js
 Plot.plot({
