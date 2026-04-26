@@ -20,3 +20,5 @@ export const flex_observations = flex_observations_raw
 
         return true
     })
+
+export const observations_last_timestamp = d3.max(flex_observations_raw, d => d.timestamp)

@@ -2,6 +2,11 @@
 toc: false
 ---
 
+```js
+import {formatDatetime} from './lib/helpers.js'
+import {observations_last_timestamp} from './data/communauto.js'
+```
+
 <div class="hero">
   <h1>Communauto FLEX in Ottawa: The first six months</h1>
 </div>
@@ -12,7 +17,7 @@ Unlike Communauto’s conventional round-trip offering, where each car must be p
 
 This project visualizes usage of the FLEX service, using data on where FLEX cars are parked within the region. It offers a few reflections on the first six months of Communauto FLEX service in Ottawa/Gatineau.
 
-The data was collected about once an hour, starting at 11 AM on Saturday, October 18th. (The first two and a half days of usage are thus not reflected—my eternal regret!) **Data was last updated at: ${formatTime(observations_last_timestamp)}** [TODO: decide if we want to make this a fixed report, or auto-updating]
+The data was collected about once an hour, starting at 11 AM on Saturday, October 18th. (The first two and a half days of usage are thus not reflected—my eternal regret!) **Data was last updated at: ${formatDatetime(observations_last_timestamp)}.** [TODO: decide if we want to make this a fixed report, or auto-updating]
 
 
 <style>

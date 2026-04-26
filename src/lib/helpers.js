@@ -3,6 +3,8 @@ import {html} from "npm:htl"
 
 export const formatDate = timeFormat("%B %d, %Y")
 
+export const formatDatetime = timeFormat("%b %d, %Y, %I:%M %p")
+
 // rounds, no decimal
 export const formatPercent = (frac) => Number.isNaN(frac) ? 0 : Math.round(frac * 100) / 1
 
