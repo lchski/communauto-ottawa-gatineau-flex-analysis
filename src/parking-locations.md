@@ -3,7 +3,7 @@ title: Parking locations [TODO]
 ---
 
 ```js
-import {flex_observations} from './data/communauto.js'
+import {flex_observations_stopovers} from './data/communauto.js'
 import {basemap_components, parkingmap_components, observations_to_geojson, plot_parking_observations} from './lib/maps.js'
 ```
 
@@ -17,13 +17,13 @@ Plot.plot({
 //   subtitle: `Data last pulled at: ${formatTime(observations_last_timestamp)}`,
   projection: {
     type: "mercator",
-    domain: observations_to_geojson(flex_observations),
+    domain: observations_to_geojson(flex_observations_stopovers),
     inset: 50
   },
   marks: [
 		...basemap_components,
     ...parkingmap_components,
-    plot_parking_observations(observations_to_geojson(flex_observations.slice(0, 10))),
+    plot_parking_observations(observations_to_geojson(flex_observations_stopovers)),
 	]
 })
 ```

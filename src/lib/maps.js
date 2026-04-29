@@ -87,10 +87,10 @@ export const plot_parking_observations = (observations_to_plot, options = {fill:
 			label: "Last seen",
 			value: d => formatDatetime(d.properties.timestamp),
 		},
-		is_current: {
-			label: "Current location (approx)",
-			value: d => d.properties.isCurrent ? `✅` : `❌`,
-		},
+		// is_current: { // TODO: if we want "current" data (e.g., in a refreshable page, see issue #9), uncomment this
+		// 	label: "Current location (approx)",
+		// 	value: d => d.properties.isCurrent ? `✅` : `❌`,
+		// },
 		hours_parked: {
 			label: "Hours parked (approx)",
 			value: d => d.properties.LastUse
