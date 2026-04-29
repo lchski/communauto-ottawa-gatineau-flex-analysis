@@ -4,7 +4,7 @@ title: Parking locations [TODO]
 
 ```js
 import {flex_observations} from './data/communauto.js'
-import {basemap_components, observations_to_geojson} from './lib/maps.js'
+import {basemap_components, parkingmap_components, observations_to_geojson, plot_parking_observations} from './lib/maps.js'
 ```
 
 # Parking locations
@@ -22,7 +22,8 @@ Plot.plot({
   },
   marks: [
 		...basemap_components,
-        // plot_parking_observations(),
+    ...parkingmap_components,
+    plot_parking_observations(observations_to_geojson(flex_observations.slice(0, 10))),
 	]
 })
 ```

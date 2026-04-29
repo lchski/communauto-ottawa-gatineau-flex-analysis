@@ -2,6 +2,8 @@ import {FileAttachment} from "observablehq:stdlib"
 import * as shapefile from "npm:shapefile"
 import * as Plot from "npm:@observablehq/plot";
 
+import {formatDatetime} from './helpers.js';
+
 const roads = await shapefile.read(
 	...(await Promise.all([
 		FileAttachment("../data/ottawa.ca/Road_Centrelines_simplify_25.shp").stream(),
@@ -34,6 +36,17 @@ export const basemap_components = [
     Plot.geo(voie_publique, {strokeWidth: 0.15}),
 ]
 
+export const parkingmap_components = [
+	Plot.geo(ottawa_residential_parking_zones, {strokeDasharray: "3,5", strokeOpacity: 0.5}),
+	Plot.geo(
+		ottawa_residential_parking_roads.features.filter(d => d.properties.Parking_Regulations !== 3), // 3 seems to be "no parking for permit holders", 1 and 2 both "parking permit okay"
+		{
+			strokeOpacity: 0.2,
+			stroke: "green"
+		}
+	)
+]
+
 export const observations_to_geojson = (observations_to_convert) => {
 	const observations_geojson = {
 		type: "FeatureCollection",
@@ -57,3 +70,38 @@ export const observations_to_geojson = (observations_to_convert) => {
 	
 	return observations_geojson;
 }
+
+export const plot_parking_observations = (observations_to_plot, options = {fill: "isCurrent", fillOpacity: 1}) => Plot.geo(observations_to_plot, {
+	fill: options.fill,
+	fillOpacity: options.fillOpacity,
+	channels: {
+		car: {
+			label: "Car #",
+			value: d => `${d.properties.CarNo}`,
+		},
+		parked_at: {
+			label: "Parked at",
+			value: d => formatDatetime(d.properties.LastUseDate),
+		},
+		last_seen: {
+			label: "Last seen",
+			value: d => formatDatetime(d.properties.timestamp),
+		},
+		is_current: {
+			label: "Current location (approx)",
+			value: d => d.properties.isCurrent ? `✅` : `❌`,
+		},
+		hours_parked: {
+			label: "Hours parked (approx)",
+			value: d => d.properties.LastUse
+		}
+	},
+	tip: {
+		format: {
+			fill: false,
+			x: false,
+			y: false,
+			symbol: false
+		}
+	}
+})
