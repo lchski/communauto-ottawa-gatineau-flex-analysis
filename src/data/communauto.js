@@ -2,6 +2,8 @@ import {FileAttachment} from "observablehq:stdlib"
 import * as d3 from "npm:d3"
 import * as aq from "npm:arquero"
 
+import { observations_to_geojson } from "../lib/maps.js"
+
 const flex_observations_raw = await FileAttachment('../data/communauto/flex-location-observations.tsv').tsv({typed: true})
 
 export const flex_observations = flex_observations_raw
@@ -34,3 +36,5 @@ export const flex_observations_stopovers = aq.from(flex_observations)
     // isCurrent: d.timestamp == observations_last_timestamp // TODO: if we want "current" data (e.g., in a refreshable page, see issue #9), uncomment this
     isCurrent: false
   }))
+
+export const flex_observations_stopovers_geo = observations_to_geojson(flex_observations_stopovers)
