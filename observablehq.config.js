@@ -20,8 +20,19 @@ export default {
       name: "Availability",
       pages: [
         {name: "How many cars were in service?", path: "/availability/"},
-        {name: "How easily could you get a car?", path: "/availability/location"}
+        {name: "How easily could you get a car?", path: "/availability/location"},
+        {name: "What was the impact of snow events?", path: "/availability/snow-events"}
       ]
+    },
+    {
+      name: "Parking",
+      pages: [
+        {name: "Where’d all those cars park?", path: "/parking/locations"}
+      ]
+    },
+    {
+      name: "Bylaw confusion",
+      path: "bylaw-confusion"
     }
   ],
 

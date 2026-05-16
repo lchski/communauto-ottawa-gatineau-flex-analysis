@@ -1,14 +1,13 @@
 ---
-title: Parking locations [TODO]
+title: "Parking: Where’d all those cars park?"
 ---
 
 ```js
-import {flex_observations_stopovers, flex_observations_stopovers_geo} from './data/communauto.js'
-import {basemap_components, parkingmap_components, observations_to_geojson, plot_parking_observations} from './lib/maps.js'
+import {flex_observations_stopovers, flex_observations_stopovers_geo} from '../data/communauto.js'
+import {basemap_components, parkingmap_components, observations_to_geojson, plot_parking_observations} from '../lib/maps.js'
 ```
 
-# Parking locations
-## Where’d all those cars park?
+# Parking locations: Where’d all those cars park?
 
 Because we can, here’s the most literal answer to the question: a map of every location where a FLEX car parked during the first six months of the pilot.
 
