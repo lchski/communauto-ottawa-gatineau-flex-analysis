@@ -1,13 +1,13 @@
 ---
-title: Car availability [TODO]
+title: "Availability: How many cars were in service?"
 ---
 
 ```js
-import {formatDate, formatPercent, sparkbar} from './lib/helpers.js'
-import {flex_observations} from './data/communauto.js'
+import {formatDate, formatPercent, sparkbar} from '../lib/helpers.js'
+import {flex_observations} from '../data/communauto.js'
 ```
 
-# Car availability
+# Availability: How many cars were in service?
 
 The [pilot project announcement](https://ontario.communauto.com/ottawa/the-cities-of-ottawa-and-gatineau-approve-the-launch-of-communautos-flex-carsharing-service/) indicated that 30 cars would be in service. Communauto lived up to this promise! There were ${availability_by_car.length} unique cars in service during this period.
 
@@ -241,7 +241,7 @@ Since FLEX cars are parked on city streets, this promo serves the dual purpose o
 
 The downward spike on December 11 suggests that it did, since there were only ten cars observed as available in total that day. The week leading up to the event is interesting. My hunch is that, with bad weather in the forecast, Communauto artificially took cars offline to test how quickly people would take them up on the free car promo. (The data suggest this, but my hunch is also informed from observing at least one car near me that had been parked for a week, but unavailable in the app!)
 
-The first snow event was the longest, so it shows up most clearly in the data, but we also see subsequent events, to varying extents (the downward spike will only show if the event was longer than a day, because of how this chart works):
+The first snow event was the longest, so it shows up most clearly in the data, but we also see subsequent events, to varying extents (the downward spike will only show if the event was longer than a day, because of how this chart aggregates data):
 
 <!-- [TODO: zoom into this period, see the _minimum_ and _maximum_ car availability per day, maybe show it by hour or so—I imagine it went to 0 during the snow event]] -->
 

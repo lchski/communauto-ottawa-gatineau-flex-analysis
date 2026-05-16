@@ -15,6 +15,15 @@ export default {
   //     ]
   //   }
   // ],
+  pages: [
+    {
+      name: "Availability",
+      pages: [
+        {name: "How many cars were in service?", path: "/availability/"},
+        {name: "How easily could you get a car?", path: "/availability/location"}
+      ]
+    }
+  ],
 
   // Content to add to the head of the page, e.g. for a favicon:
   // head: '<link rel="icon" href="observable.png" type="image/png" sizes="32x32">',
