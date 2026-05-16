@@ -103,7 +103,7 @@ This chart tells us that there was never a week where all 30 cars were observed 
 
 We can see, looking back at the table of cars, that one wasn’t like the others: #${least_available_car.CarNo} was only in service between ${formatDate(least_available_car.first_seen)} and ${formatDate(least_available_car.last_seen)} (${d3.timeDay.count(least_available_car.first_seen, least_available_car.last_seen)} days total). Of this time, it was only actually observed (i.e., available to rent at some point that day) on ${least_available_car.n_days_seen} days (${formatPercent(least_available_car.pct_days_seen_vs_service)}% of the total days in service).
 
-These questions are most fun at scale: when did cars enter service, for how long were they in service, and when did they go out of service?
+These questions are most fun at scale: when did cars enter service (cross), for how long were they in service (dot), and when did they go out of service (triangle)?
 
 ```js
 Plot.plot({
